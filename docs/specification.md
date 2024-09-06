@@ -49,10 +49,11 @@ There are many different algorithms and techniques that can be used for pitch
 detection, but this project will specifically focus on cepstral analysis. The
 project will implement the Cooley-Tukey FFT algorithm to efficiently compute
 both the DFT and its inverse. Cepstral analysis is then applied to extract the
-fundamental frequency from the spectrum. The Cooley-Tukey FFT algorithm is based
-on the version presented by Cormen et. al. (2009). In addition, some very simple
-filtering, like a noise gate, may be applied to the input signal, but this is
-mostly for the usability of the tuner.
+fundamental frequency from the spectrum. Inspiration for implementing the
+Cooley-Tukey FFT algorithm will likely be derived from the material presented by
+Cormen et. al. (2009). In addition, some very simple filtering, like a noise
+gate, may be applied to the input signal, but this is mostly for the usability
+of the tuner.
 
 The tuner listens to sound input from a microphone, and processes the signal in
 real-time. The user can play a guitar string, and the tuner will display the
