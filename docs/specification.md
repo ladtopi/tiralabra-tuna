@@ -21,22 +21,24 @@ DFT, as exemplified in the following figure.
 ![sine](/docs/images/specification_files/specification_1_0.png)
 
 For musical instruments though, the matter is a bit more complex. A vibrating
-string produces a superposition of multiple frequencies, called _harmonics_,
-which are integer multiples of the fundamental frequency. The fundamental
-frequency is the lowest frequency in the spectrum, and it determines the pitch
-of the sound. It commonly occurs though that one of these harmonic _overtones_
-is actually stronger in intensity than the fundamental frequency.
+string, such as one in string instruments like a guitar, produces a
+superposition of multiple frequencies, called _harmonics_, which are integer
+multiples of the fundamental frequency. The fundamental frequency is the lowest
+frequency in the spectrum, and it determines the pitch of the sound. It commonly
+occurs though that one of these harmonic _overtones_ is actually stronger in
+intensity than the fundamental frequency.
 
 ![guitar](/docs/images/specification_files/specification_3_0.png)
 
 To combat this issue, one stategy is to apply _cepstral analysis_. Notice how
-the frequncy domain spikes above are evenly spaced? This is because the
-harmonics of a frequency are integer multiples of the original frequency. The
-intuition for finding the fundamental frequency with cepstral analysis is the
-following. The cepstrum of a signal is the inverse Fourier transform of the
-logarithm of the spectrum of the orignal signal. For harmonic signals like that
-of a plucked guitar string, what results is a function that will have a peak at
-the period that corresponds to the fundamental frequency of the original signal.
+the the spikes in the frequency domain representation above are evenly spaced?
+This is because the harmonics of a frequency are integer multiples of the
+original frequency. The intuition for finding the fundamental frequency with
+cepstral analysis is the following. The cepstrum of a signal is the inverse
+Fourier transform of the logarithm of the spectrum of the orignal signal. For
+harmonic signals like that of a plucked guitar string, what results is a
+function that will have a peak at the period that corresponds to the fundamental
+frequency of the original signal.
 
 Obviously a signal can also have external elements that have an effect on the
 frequency spectrum. This is why pitch detection is a non-trivial problem. These
@@ -97,6 +99,7 @@ be added later if time permits.
 
 - [Vibration (Wikipedia)](https://en.wikipedia.org/wiki/Vibration)
 - [Pitch (music) (Wikipeda)](<https://en.wikipedia.org/wiki/Pitch_(music)>)
+- [Guitar tunings (Wikipedia)](https://en.wikipedia.org/wiki/Guitar_tunings)
 - [Pitch detection algorithm (Wikipedia)](https://en.wikipedia.org/wiki/Pitch_detection_algorithm)
 - [Noise gate (Wikipedia)](https://en.wikipedia.org/wiki/Noise_gate)
 - [Cooley-Tukey FFT algorithm (Wikipedia)](https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm)
@@ -104,4 +107,4 @@ be added later if time permits.
   current techniques_ (pp. 0-22). Regina, Canada: Department of Computer
   Science, University of Regina.
 - Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (2009).
-  _Introduction to algorithms_. (3rd ed.). MIT press.
+  _Introduction to algorithms_. (3rd ed., pp. 898-925). MIT press.
