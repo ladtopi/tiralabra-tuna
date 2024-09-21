@@ -14,3 +14,11 @@ microphone.
 - [Weekly reports](/docs/weekly_reports/index.md)
 - [Implementation](/docs/implementation.md)
 - [Testing](/docs/testing.md)
+
+## Running the application
+
+The project uses poetry for dependency management. To run the project, make sure you have python3 and poetry installed. Then install the dependencies with `poetry install`, and run the application with the following command:
+
+```bash
+poetry run python tuna/app.py
+```
