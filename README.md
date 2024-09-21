@@ -1,5 +1,7 @@
 # Tuna - A digital guitar tuner
 
+[![codecov](https://codecov.io/github/ladtopi/tiralabra-tuna/graph/badge.svg?token=0OIABY3SPG)](https://codecov.io/github/ladtopi/tiralabra-tuna)
+
 This is a course project for the _Algorithms and Artificial Intelligence Project_
 at the University of Helsinki. The project consists of a digital guitar tuner
 that can be used to tune a guitar using a computer. The tuner is implemented in
