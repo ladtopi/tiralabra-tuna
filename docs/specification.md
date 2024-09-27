@@ -1,5 +1,8 @@
 # Tuna - A digital guitar tuner
 
+_NOTE: The document has been edited on 27th September with permission from the
+instructors, to omit some unnecessary details._
+
 This is a course project for the _Algorithms and Artificial Intelligence
 Project_ at the University of Helsinki. The project consists of a digital guitar
 tuner that can be used to tune a guitar using a computer. The tuner is
@@ -12,33 +15,27 @@ The problem explored in the project is essentially that of pitch detection. The
 goal is to determine the _fundamental frequency_ of the sound input, which
 corresponds to the pitch of the guitar string being played.
 
-For simple waves like the sine wave, the fundamental frequency can be directly
-identified from the frequency spectrum produced by the Discrete Fourier
+For simple waves like the sine wave, the fundamental frequency can be very
+easily identified from the frequency spectrum produced by the Discrete Fourier
 Transform (DFT) of the waveform. This is because the signal consists of a single
 frequency component, so the fundamental frequency is trivial to find from the
 DFT, as exemplified in the following figure.
 
 ![sine](/docs/images/specification_files/specification_1_0.png)
 
-For musical instruments though, the matter is a bit more complex. A vibrating
-string, such as one in string instruments like a guitar, produces a
+For musical instruments though, the matter is often a bit more complex. A
+vibrating string, such as one in string instruments like a guitar, produces a
 superposition of multiple frequencies, called _harmonics_, which are integer
 multiples of the fundamental frequency. The fundamental frequency is the lowest
-frequency in the spectrum, and it determines the pitch of the sound. It commonly
-occurs though that one of these harmonic _overtones_ is actually stronger in
-intensity than the fundamental frequency.
+frequency in the spectrum, and it determines the pitch of the sound. It
+sometimes occurs though that one of these harmonic _overtones_ is actually
+stronger in intensity than the fundamental frequency.
 
 ![guitar](/docs/images/specification_files/specification_3_0.png)
 
-To combat this issue, one stategy is to apply _cepstral analysis_. Notice how
-the the spikes in the frequency domain representation above are evenly spaced?
-This is because the harmonics of a frequency are integer multiples of the
-original frequency. The intuition for finding the fundamental frequency with
-cepstral analysis is the following. The cepstrum of a signal is the inverse
-Fourier transform of the logarithm of the spectrum of the orignal signal. For
-harmonic signals like that of a plucked guitar string, what results is a
-function that will have a peak at the period that corresponds to the fundamental
-frequency of the original signal.
+Problems related to these types of octave errors are left out of consideration
+within this project. Instead it is assumed that on average, simple methods for
+identifying the fundamental frequency from the spectrum is sufficient.
 
 Obviously a signal can also have external elements that have an effect on the
 frequency spectrum. This is why pitch detection is a non-trivial problem. These
@@ -48,14 +45,12 @@ enough signal is assumed.
 ## Approach
 
 There are many different algorithms and techniques that can be used for pitch
-detection, but this project will specifically focus on cepstral analysis. The
-project will implement the Cooley-Tukey FFT algorithm to efficiently compute
-both the DFT and its inverse. Cepstral analysis is then applied to extract the
-fundamental frequency from the spectrum. Inspiration for implementing the
-Cooley-Tukey FFT algorithm will likely be derived from the material presented by
-Cormen et. al. (2009). In addition, some very simple filtering, like a noise
-gate, may be applied to the input signal, but this is mostly for the usability
-of the tuner.
+detection, but this project will specifically focus on simple analysis of the
+frequency spectrum. The project will implement the Cooley-Tukey FFT algorithm to
+efficiently compute both the DFT and its inverse. Inspiration for implementing
+the algorithms will likely be derived from the material presented by Cormen et.
+al. (2009). In addition, some very simple filtering, like a noise gate, may be
+applied to the input signal, but this is mostly for the usability of the tuner.
 
 The tuner listens to sound input from a microphone, and processes the signal in
 real-time. The user can play a guitar string, and the tuner will display the
@@ -69,11 +64,11 @@ The motivation for this being a _guitar_ tuner is first and foremost a personal
 interest. It also provides a clear and practical application for the pitch
 detection algorithm. This restriction also allows us to make some assumptions
 about the input signal, which simplifies the problem. For example, the input
-signal can be assumed to be harmonic and within a certain frequency range. And
-because the desired frequency range impacts the required sampling rate, and the
-typical frequency range of a guitar string is known, the sampling rate can be
-optimized for this specific use case. This way runtime computational cost of the
-algorithm can be minimized.
+signal can be assumed to be within a certain frequency range. The desired
+frequency range impacts the required sampling rate, and since the typical
+frequency range of a guitar string is known, the sampling rate can be optimized
+for this specific use case. This way runtime computational cost of the algorithm
+can be minimized.
 
 Perfomance-wise, this project would benefit from a more performance-oriented
 implementation language, but Python is chosen for its simplicity and ease of
