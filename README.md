@@ -11,7 +11,11 @@ microphone.
 ## Documentation
 
 - [Specification](/docs/specification.md)
-- [Weekly reports](/docs/weekly_reports/index.md)
+- [Week 1](/docs/week1.md)
+- [Week 2](/docs/week2.md)
+- [Week 3](/docs/week3.md)
+- [Week 4](/docs/week4.md)
+- [Week 5](/docs/week5.md)
 - [Implementation](/docs/implementation.md)
 - [Testing](/docs/testing.md)
 
