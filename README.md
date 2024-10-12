@@ -18,6 +18,7 @@ microphone.
 - [Week 5](/docs/week5.md)
 - [Implementation](/docs/implementation.md)
 - [Testing](/docs/testing.md)
+- [User manual](/docs/manual.md)
 
 ## Running the application
 
@@ -26,3 +27,5 @@ The project uses poetry for dependency management. To run the project, make sure
 ```bash
 poetry run python tuna/app.py
 ```
+
+More detailed instructions can be found in the [User manual](/docs/manual.md).
