@@ -16,6 +16,7 @@ microphone.
 - [Week 3](/docs/week3.md)
 - [Week 4](/docs/week4.md)
 - [Week 5](/docs/week5.md)
+- [Week 6](/docs/week6.md)
 - [Implementation](/docs/implementation.md)
 - [Testing](/docs/testing.md)
 - [User manual](/docs/manual.md)
