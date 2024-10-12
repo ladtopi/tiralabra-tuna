@@ -56,7 +56,18 @@ intermediate results of the recursive calls.
 
 ## Shortcomings and suggestions for improvement
 
-TODO: Fill in later
+The obvious shortcoming in this project is that the pitch detection algorithm is
+quite naive. It is based on the assumption that the fundamental frequency will
+have the highest magnitude in the fourier transform. This is not always the
+case. Especially for string instruments like the guitar, the harmonic overtones
+can very well have higher magnitudes than the fundamental frequency. This can
+lead to so called octave errors, that this algorithm is prone to.
+
+There are multiple pitch detection algorithms that could be used to improve the
+accuracy. Probably the most notable would be the semi-recent YIN algorithm.
+However, the point of this project was not to implement perfect pitch detection,
+but rather to get a feel for the DSP domain by working with one of its hallmark
+algorithms, the FFT.
 
 ## Usage of AI
 
