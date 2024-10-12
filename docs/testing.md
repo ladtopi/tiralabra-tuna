@@ -6,7 +6,7 @@ the `tests` directory, and can be run using the command `pytest`.
 
 Automatic testing does not cover the user interface (which is minimal anyhow).
 
-## Test types
+## What has been tested
 
 Unit tests (both static and property based invariant tests), and performance
 tests are used to test the project.
@@ -27,7 +27,29 @@ In addition to unit tests, performance tests are used to measure the performance
 of the FFT implementation. The performance tests are located in the `tests/performance`
 directory.
 
-TODO: more detailed explanation of the tests for key functionality
+## Some key tests
+
+For the **DFT** implementation, there are tests for some basic cases, such as
+verifying the output for a simple sine and cosine wave. The output correctness
+is also verified with a small complex (in form) signal. Additionally, the even
+symmetry property for real signals is covered by testing with a large number of
+random inputs.
+
+The **FFT** implementation is tested against the naive DFT implementation, on
+the grounds that the outputs should be the same. Naturally, `hypohesis` is
+leveraged to generate a large number of random inputs. Additionally, since this
+FFT implementation is radix-2, checking this precondition is tested as well.
+
+The main **pitch detection** algorithm is tested with simple signals that are
+easy to generate and test. Both sine waves and square waves (that are harmonic
+by nature) are used. Again, the algorithm is tested with a large number of these
+waveforms in random frequencies. The wave generators are tested separately.
+
+Finally, the **performance** of the FFT implementation is compared to that of
+the direct naive DFT implementation to verify that it is indeed (significantly)
+faster. This is verified by running the same input through both implementations
+10 times and comparing the average running times. This test is also run with a
+larger signal, to see that the gap should start to widen quickly.
 
 ## Unit test coverage
 
@@ -41,15 +63,15 @@ At the time of writing, the coverage report is as follows:
 Name                Stmts   Miss Branch BrPart  Cover   Missing
 ---------------------------------------------------------------
 tuna/dft.py            11      0      6      0   100%
-tuna/fft.py            38      0     16      0   100%
-tuna/filtering.py       6      0      0      0   100%
-tuna/pitch.py          12      0      0      0   100%
+tuna/fft.py            37      0     16      0   100%
+tuna/filtering.py       5      0      0      0   100%
+tuna/pitch.py          11      0      0      0   100%
 tuna/tonal.py          12      0      2      0   100%
-tuna/types.py           4      0      0      0   100%
+tuna/tuner.py          30      0      6      0   100%
 tuna/utils.py           7      0      4      0   100%
-tuna/wavegen.py         8      0      0      0   100%
+tuna/wavegen.py         7      0      0      0   100%
 ---------------------------------------------------------------
-TOTAL                  98      0     28      0   100%
+TOTAL                 120      0     34      0   100%
 
 1 empty file skipped.
 ```
