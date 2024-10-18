@@ -1,5 +1,6 @@
 # Tuna - A digital guitar tuner
 
+![CI status](https://github.com/ladtopi/tiralabra-tuna/actions/workflows/checks.yml/badge.svg)
 [![codecov](https://codecov.io/github/ladtopi/tiralabra-tuna/graph/badge.svg?token=0OIABY3SPG)](https://codecov.io/github/ladtopi/tiralabra-tuna)
 
 This is a course project for the _Algorithms and Artificial Intelligence Project_
