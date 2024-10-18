@@ -22,27 +22,29 @@ tuna/
 ├── filtering.py      # Filtering functions (eg. noise gate)
 ├── pitch.py          # Pitch detection (estimating the fundamental frequency)
 ├── tonal.py          # Transformations between frequencies and notes
-├── app.py            # Main tuner application
+├── tuner.py          # Tuner class that provides the top level functionality
+├── app.py            # CLI wrapper to the functionality provided by Tuner
 ```
 
-For handling the audio input, the project uses the `sounddevice` library. The
-library in turn uses the `PortAudio` library for interfacing with the audio
-hardware.
+For handling the audio input, the project uses the
+[sounddevice](https://python-sounddevice.readthedocs.io/en/0.5.1/) library. The
+library in turn uses the [PortAudio](https://www.portaudio.com/) system library
+for interfacing with the audio hardware.
 
 ## Complexity analysis
 
-The key algorithm in this project is the Cooley-Tukey FFT. It's a
-divide-and-conquer algorithm that recursively breaks down a DFT of any composite
-size `N = N1 * N2` into many smaller DFTs of sizes `N1` and `N2`, recursively,
-until the base case of `N = 1` is reached. The algorithm then combines the
-results of the smaller DFTs to produce the final DFT. It's rather easy to guess
-that the time complexity of the algorithm is `O(n lg n)`. Since formal proofs
-are beyond the scope of this document, we'll just leave it here.
+The key algorithm in this project is the (radix-2) Cooley-Tukey FFT. It's a
+divide-and-conquer algorithm that recursively breaks down a DFT of size $n =
+2^k$ (for some $k \in \mathbb{N}$) into two smaller DFTs of sizes $\frac{n}{2}$,
+recursively, until the base case of $n = 1$ is reached. The algorithm then
+combines the results of the smaller DFTs to produce the final DFT. It's rather
+easy to guess that the time complexity of the algorithm is $O(n \lg n)$. Since
+formal proofs are beyond the scope of this document, we'll just leave it here.
 
 Because one of the key aspects here is that FFT should be an efficient way of
 computing the DFT, the project also implements the naive DFT for verification.
-The naive DFT has a time complexity of `O(n^2)`, as can be easily seen from the
-two nested `[1..n]` for loops in its [implementation](/tuna/dft.py). It starts
+The naive DFT has a time complexity of $O(n^2)$, as can be easily seen from the
+two nested $1..n$ for loops in its [implementation](/tuna/dft.py). It starts
 to get quite slow on consumer hardware for even modestly sized inputs, like the
 ones this project requires so that the necessary frequencies can be caught and
 estimated with enough resolution.
@@ -50,8 +52,8 @@ estimated with enough resolution.
 Space complexity does not seem like a real concern from the perspective of this
 project, because our design choices limit the It's worth noting that both the
 naive DFT and the FFT are implemented in a way that they don't mutate the input,
-so the space complexity is at least `O(n)`. For FFT, it's easy to see that the
-space complexity is actually more like `O(n lg n)`, since we have to store the
+so the space complexity is at least $O(n)$. For FFT, it's easy to see that the
+space complexity is actually more like $O(n \lg n)$, since we have to store the
 intermediate results of the recursive calls.
 
 ## Shortcomings and suggestions for improvement
