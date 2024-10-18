@@ -26,7 +26,7 @@ microphone.
 The project uses poetry for dependency management. To run the project, make sure you have python3 and poetry installed. Then install the dependencies with `poetry install`, and run the application with the following command:
 
 ```bash
-poetry run python tuna/app.py
+poetry run inv start
 ```
 
 More detailed instructions can be found in the [User manual](/docs/manual.md).

@@ -53,9 +53,8 @@ larger signal, to see that the gap should start to widen quickly.
 
 ## Unit test coverage
 
-The unit test coverage of the project is measured using the `coverage` tool. The
-coverage report can be generated using the command `coverage run` and viewed
-using the command `coverage report`.
+The unit test coverage of the project is measured using the `coverage` tool. A
+new report can be generated using the command `poetry run inv coverage`.
 
 At the time of writing, the coverage report is as follows:
 
@@ -82,6 +81,6 @@ The unit test coverage is also monitored in [Codecov](https://codecov.io/github/
 
 The tests can be run inside the Poetry environment as follows:
 
-- `poetry run pytest` to run all tests
-- `poetry run pytest tests/unit` to run only the unit tests
-- `poetry run pytest tests/perf` to run only the performance tests
+- `poetry run inv test-all` to run all tests
+- `poetry run inv test-unit` to run only the unit tests
+- `poetry run inv test-perf` to run only the performance tests
