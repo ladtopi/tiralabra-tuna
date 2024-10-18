@@ -29,4 +29,5 @@ The project uses poetry for dependency management. To run the project, make sure
 poetry run inv start
 ```
 
-More detailed instructions can be found in the [User manual](/docs/manual.md).
+> [!NOTE]
+> More detailed instructions can be found in the [User manual](/docs/manual.md).
