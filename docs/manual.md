@@ -12,10 +12,12 @@ correct, given a clean enough input signal.
 
 ## Installation
 
-If you don't have Poetry installed, make sure to install it first. You can find
-instructions on how to do this in the [Poetry documentation](https://python-poetry.org/docs/#installation).
+The project requires at least Python 3.10, so make sure you have it installed.
+Poetry is also required, so make sure to install it first. You can find
+instructions for this in the [Poetry
+documentation](https://python-poetry.org/docs/#installation).
 
-After you have Poetry installed, you can install the project dependencies with:
+After the previous prerequisites are met, you can install the project dependencies with:
 
 ```bash
 poetry install
@@ -28,7 +30,7 @@ poetry install
 > is not done automatically. The way to install it depends on the distribution.
 > On Ubuntu you can install it with `sudo apt-get install portaudio19-dev`.
 
-## Running
+## Usage
 
 After installation you can start the application with:
 
