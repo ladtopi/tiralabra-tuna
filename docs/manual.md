@@ -42,5 +42,6 @@ You should now start seeing the periodically detected pitch in your terminal.
 You can stop the application with `Ctrl+C`.
 
 > [!NOTE]
-> The application will select the microphone based on the default input device,
-> so make sure that the correct microphone is selected in your system settings.
+> The application will select the microphone based on system
+> defaults. If you wish to override this, you can pass the optional flag
+> `--select-input` to the start command.
