@@ -50,10 +50,11 @@ ones this project requires so that the necessary frequencies can be caught and
 estimated with enough resolution.
 
 Space complexity does not seem like a real concern from the perspective of this
-project, because our design choices limit the It's worth noting that both the
-naive DFT and the FFT are implemented in a way that they don't mutate the input,
-so the space complexity is at least $O(n)$. For FFT, it's easy to see that the
-space complexity is actually more like $O(n \lg n)$, since we have to store the
+project, because the design choices limit the input size (the number of samples
+in each recorded audio window). It's worth noting that both the naive DFT and
+the FFT are implemented in a way that they don't mutate the input, so the space
+complexity is at least $O(n)$. For FFT, it's easy to see that the space
+complexity is actually more like $O(n \lg n)$, since we have to store the
 intermediate results of the recursive calls.
 
 ## Shortcomings and suggestions for improvement
