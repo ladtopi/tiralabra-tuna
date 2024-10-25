@@ -28,7 +28,10 @@ poetry install
 > library, which itself is a wrapper on [PortAudio](https://www.portaudio.com/). This
 > means that you need to have PortAudio installed on your system. On Linux, this
 > is not done automatically. The way to install it depends on the distribution.
-> On Ubuntu you can install it with `sudo apt-get install portaudio19-dev`.
+> On Ubuntu you can install it with `sudo apt-get install portaudio19-dev`. Also note that on
+> some systems you might not even have [pulseaudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)
+> installed. In this case, you also need to install that. On Ubuntu you can install it with
+> `sudo apt-get install pulseaudio`.
 
 ## Usage
 
