@@ -71,6 +71,16 @@ However, the point of this project was not to implement perfect pitch detection,
 but rather to get a feel for the DSP domain by working with one of its hallmark
 algorithms, the FFT.
 
+Besides the pitch detection itself, there are other areas where the end product,
+i.e. the tuner application, could be improved. For example, the application
+could allow configuring the sample rate and window duration, which would give
+control over the detectable pitch range. Also, the noise gate could be improved
+to be more adaptive to the input signal. Because different hardware may report
+the amplitudes differently, the application could have a calibration option,
+where the appliocation could monitor the input for some duration and determine a
+suitable noise threshold automatically. Now the threshold is a more or less
+arbitrary value that can be configured by trial and error.
+
 ## Usage of AI
 
 While pondering the project setup, I used Google Gemini (and to a lesser
