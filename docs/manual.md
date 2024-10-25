@@ -42,6 +42,13 @@ You should now start seeing the periodically detected pitch in your terminal.
 You can stop the application with `Ctrl+C`.
 
 > [!NOTE]
-> The application will select the microphone based on system
-> defaults. If you wish to override this, you can pass the optional flag
-> `--select-input` to the start command.
+> Without options, the application will select the microphone based on system defaults.
+
+## Configuration options
+
+There are some configuration options available:
+
+- `--select-input`: Enables selecting the input device when launching the app.
+- `--noise-threshold`: Enables setting the noise gate threshold value. Unfortunately, currently the configuration of this is essentially a matter of trial and error.
+
+For help, see `poetry run inv start -h`.

@@ -17,8 +17,14 @@ def check_portaudio(ctx: Context):
         sys.exit(1)
 
 
-@task(check_portaudio)
+# pylint: disable=line-too-long
+@task(check_portaudio,
+      help={'select_input': 'When used, this option will trigger input device selection on startup.',
+            'noise_threshold': 'Configures the noise threshold to be used when processing frames.'})
 def start(ctx: Context, select_input=False, noise_threshold=0.0):
+    """
+    Starts the tuna application with optional input selection and noise threshold.
+    """
     cmd = "python tuna/app.py"
     if select_input:
         cmd += " -s"
